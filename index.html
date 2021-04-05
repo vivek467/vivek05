@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<html>
+<title>WEBVIVEK CREATION</TITLE>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<head>
+<body>
+<header>
+<div class="main">
+ <ul>
+ <li><a href="#">Home</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</header>
+</body>
+</html<?php include('header.php')?>
+<body class="cms-index-index cms-home-page ">
+
+<!--[if lt IE 8]>
+
+<![endif]--> 
+
+  
+  <!-- service section -->
+  <div class="jtvservice-area " >
+    <div class="container" >
+      <div class="row" >
+        <div class="col col-md-3 col-sm-6 col-xs-12" >
+          <div class="block-wrapper ship">
+            <div class="text-des">
+              <div class="icon-wrapper"><i class="fa fa-truck"></i></div>
+              <div class="service-wrapper">
+                <h3>World-Wide Shipping</h3>
+                <p>On order over <i class="fa fa-inr"></i> 99</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-3 col-sm-6 col-xs-12 ">
+          <div class="block-wrapper return">
+            <div class="text-des">
+              <div class="icon-wrapper"><i class="fa fa-refresh"></i></div>
+              <div class="service-wrapper">
+                <h3>30 Days Return</h3>
+                <p>Moneyback guarantee </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-3 col-sm-6 col-xs-12">
+          <div class="block-wrapper support">
+            <div class="text-des">
+              <div class="icon-wrapper"><i class="fa fa-umbrella"></i></div>
+              <div class="service-wrapper">
+                <h3>SUPPORT 24/7</h3>
+                <p>Call us: +91 8221881090</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-3 col-sm-6 col-xs-12">
+          <div class="block-wrapper user">
+            <div class="text-des">
+              <div class="icon-wrapper"><i class="fa fa-user"></i></div>
+              <div class="service-wrapper">
+                <h3>MEMBER DISCOUNT</h3>
+                <p>65% on order over <i class="fa fa-inr"></i> 10,099</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--special-products-->
+  
+  <div class="container" >
+    <div class="special-products">
+      <div class="page-header">
+        <h2>Special Products</h2>
+      </div>
+      <div class="special-products-pro">
+        <div class="slider-items-products">
+          <div id="special-products-slider" class="product-flexslider hidden-buttons">
+            <div class="slider-items slider-width-col4">
+			
+										                <?php 
+                                      
+                    $query_LatestProducts10 = mysqli_query($conn,"select product_id,product_price,product_title,img_1,product_desc from product where is_delete='0' ORDER BY RAND() limit 50");
+                                    while($arr_product =  mysqli_fetch_array($query_LatestProducts10)){
+                                      $productid =  $arr_product['product_id'];
+                    ?>  
+						
+              <div class="product-item">
+                <div class="item-inner">
+                  <div class="product-thumbnail">
+                    <div class="icon-sale-label sale-left">Sale</div>
+                    <div class="icon-new-label new-right">New</div>
+                    <div class="pr-img-area"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>">
+                      <figure> <img class="first-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""> <img class="hover-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""></figure>
+                      </a> </div>
+                  <!--  <div class="pr-info-area">
+                      <div class="pr-button">
+                     
+                         
+                        <div class="mt-button quick-view"> <a href="quick_view.php?pid=<?php echo $arr_product['product_id'];?>"> <i class="fa fa-search"></i> </a> </div>
+                      </div>
+                    </div>-->
+                  </div>
+                  <div class="item-info">
+                    <div class="info-inner">
+                      <div class="item-title"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"><?php echo $arr_product['product_title'];?></a> </div>
+                      <div class="item-content">
+                       <!--  <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div> -->
+                        <div class="item-price">
+                          <div class="price-box"> <span class="regular-price"> <span class="price"><i class="fa fa-inr"></i><?php echo $arr_product['product_price'];?></span> </span> </div>
+                        </div>
+                        <div class="pro-action">
+                         <a href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"> <button type="button"  class="add-to-cart"> <i class="fa fa-shopping-basket"></i><span> Add to Cart</span> </button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+         	           <?php }?>
+		   </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="special-products">
+      <div class="page-header">
+        <h2 id="dem8">Latest Offers</h2>
+     
+      </div>
+      <div class="special-products-pro">
+        <div class="slider-items-products" >
+          <div id="special-products-slider" class="product-flexslider hidden-buttons">
+            <div class="slider-items slider-width-col4">
+      
+                                    <?php 
+                                      
+                                     $currentTime= date("Y-m-d H:i:s");
+                    $query_LatestProducts11 = mysqli_query($conn,"select * from bidding_product , product where product.product_id=bidding_product.product_id and user_id='1' and bidding_product.is_delete='0' and bidding_product.end_time >= '$currentTime' ORDER BY RAND() limit 50");
+
+                   
+                                    while($arr_biddingproduct =  mysqli_fetch_array($query_LatestProducts11)){
+                                    
+                                      $productid =  $arr_biddingproduct['product_id'];
+                    ?>  
+            
+              <div class="product-item" id="demo4">
+                <div class="item-inner">
+                  <div class="product-thumbnail">
+                    <div class="icon-sale-label sale-left">Sale</div>
+                    <div class="icon-new-label new-right">New</div>
+                    <div class="pr-img-area"> <a title="<?php echo $arr_biddingproduct['product_title'];?>" href="biddingproduct-description.php?prdid=<?php echo $arr_biddingproduct['product_id'];?>">
+                      <figure> <img class="first-img" src="admin/<?php echo $arr_biddingproduct['img_1'];?>" alt=""> <img class="hover-img" src="admin/<?php echo $arr_biddingproduct['img_1'];?>" alt=""></figure>
+                      </a> </div>
+                  <!--  <div class="pr-info-area">
+                      <div class="pr-button">
+                     
+                         
+                        <div class="mt-button quick-view"> <a href="quick_view.php?pid=<?php echo $arr_product['product_id'];?>"> <i class="fa fa-search"></i> </a> </div>
+                      </div>
+                    </div>-->
+                  </div>
+                  <div class="item-info">
+                    <div class="info-inner">
+                      <div class="item-title"> <a title="<?php echo $arr_product['product_title'];?>" href="biddingproduct-description.php?prdid=<?php echo $arr_biddingproduct['product_id'];?>">
+                        <?php echo $arr_biddingproduct['product_title'];?></a> </div>
+                      <div class="item-content">
+                        <!-- <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div> -->
+                        <div class="item-price">
+                          <div class="price-box"> <span class="regular-price"> <span class="price">
+                            <p><i class="fa fa-inr "><strike><?php echo $arr_biddingproduct['product_price'];?></strike><br/>
+                              <i class="fa fa-inr price"> <?php echo $arr_biddingproduct['bidding_price'];?></i></p></i>
+                           </span> </span> </div>
+                        </div>
+                        <div class="pro-action">
+                          
+
+
+                         <a href="biddingproduct-description.php?prdid=<?php echo $arr_biddingproduct['product_id'];?>"> <button type="button" class="add-to-cart"> <span class="glyphicon glyphicon-hand-up"></span> <span> Buy</span> </button></a>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                     <?php }?>
+       </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Banner -->
+  <!-- <div class="top-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="jtv-banner3">
+            <div class="jtv-banner3-inner"><a href="#"><img src="images/sub1.jpg" alt=""></a>
+              <div class="hover_content">
+                <div class="hover_data">
+                  <div class="title"> Fresh Fruit </div>
+                  <div class="desc-text"> Delivered to your door</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+		<div class="col-sm-6">
+          <div class="jtv-banner3">
+            <div class="jtv-banner3-inner"><a href="#"><img src="images/sub-4.jpg" alt=""></a>
+              <div class="hover_content">
+                <div class="hover_data">
+                  <div class="title">Best Quality</div>
+                  <div class="desc-text"> Delivered to your door</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+	
+		
+		
+		
+		
+		
+      </div>
+    </div>
+  </div> -->
+  <!-- main container -->
+  <div class="main-container col1-layout">
+    <div class="container">
+      <div class="row"> 
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <div class="home-tab">
+            <ul class="nav home-nav-tabs home-product-tabs">
+              <li class="active"><a href="#featured" data-toggle="tab" aria-expanded="false">Trending Sales</a></li>
+              <li class="divider"></li>
+              <li> <a href="#top-sellers" data-toggle="tab" aria-expanded="false">Popular</a> </li>
+            </ul>
+            <div id="productTabContent" class="tab-content">
+              <div class="tab-pane active in" id="featured">
+                <div class="featured-pro">
+                  <div class="slider-items-products">
+                    <div id="featured-slider" class="product-flexslider hidden-buttons">
+                      <div class="slider-items slider-width-col4">
+					  
+	             <?php 
+                                      
+                    $query_LatestProducts10 = mysqli_query($conn,"select product_id,product_price,product_title,img_1,product_desc from product where is_delete='0' order by rand()  limit 20");
+                                    while($arr_product =  mysqli_fetch_array($query_LatestProducts10)){
+                                      $productid =  $arr_product['product_id'];
+                    ?>
+					  
+                        <div class="product-item">
+                          <div class="item-inner">
+                            <div class="product-thumbnail">
+                              <div class="icon-sale-label sale-left">Sale</div>
+                              <div class="icon-new-label new-right">New</div>
+                              <div class="pr-img-area"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>">
+                                <figure> <img class="first-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""> <img class="hover-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""></figure>
+                                </a> </div>
+                              <!--<div class="pr-info-area">
+                                <div class="pr-button">
+                                  <div class="mt-button add_to_wishlist"> <a href="#"> <i class="fa fa-heart"></i> </a> </div>
+                                  <div class="mt-button add_to_compare"> <a href="#"> <i class="fa fa-signal"></i> </a> </div>
+                                  <div class="mt-button quick-view"> <a href="#"> <i class="fa fa-search"></i> </a> </div>
+                                </div>
+                              </div>-->
+                            </div>
+                            <div class="item-info">
+                              <div class="info-inner">
+                                <div class="item-title"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"><?php echo $arr_product['product_title'];?></a> </div>
+                                <div class="item-content">
+                                  <!-- <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div> -->
+                                  <div class="item-price">
+                                    <div class="price-box"> <span class="regular-price"> <span class="price"><i class="fa fa-inr"></i><?php echo $arr_product['product_price'];?></span> </span> </div>
+                                  </div>
+                                  <div class="pro-action">
+                                   <a href="shopping_cart.php?pid=<?php echo $productid; ?>&qty=1">  <button type="button" class="add-to-cart"> <i class="fa fa-shopping-basket"></i><span> Add to Cart</span> </button></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+						            	<?php }?>
+                    
+					 </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="top-sellers">
+                <div class="top-sellers-pro">
+                  <div class="slider-items-products">
+                    <div id="top-sellers-slider" class="product-flexslider hidden-buttons">
+                      <div class="slider-items slider-width-col4 ">
+					     <?php 
+                                      
+                    $query_LatestProducts10 = mysqli_query($conn,"select product_id,product_price,product_title,img_1,product_desc from product where is_delete='0' order by rand() limit 15");
+                                    while($arr_product =  mysqli_fetch_array($query_LatestProducts10)){
+                                      $productid =  $arr_product['product_id'];
+                    ?>
+					  
+                        <div class="product-item">
+                          <div class="item-inner">
+                            <div class="product-thumbnail">
+                              <div class="icon-sale-label sale-left">Sale</div>
+                              <div class="icon-new-label new-right">New</div>
+                              <div class="pr-img-area" ><a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>">
+                                <figure> <img class="first-img" src="admin/<?php echo $arr_product['img_1'];?>"alt=""> <img class="hover-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""></figure>
+                                </a> </div>
+                              <div class="pr-info-area">
+                                <div class="pr-button">
+                                  <!-- <div class="mt-button add_to_wishlist"> <a href="#"> <i class="fa fa-heart"></i> </a> </div>
+                                  <div class="mt-button add_to_compare"> <a href="#"> <i class="fa fa-signal"></i> </a> </div> -->
+                                  <div class="mt-button quick-view"> <a href="quick_view.php"> <i class="fa fa-search"></i> </a> </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="item-info">
+                              <div class="info-inner">
+                                <div class="item-title"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"><?php echo $arr_product['product_title'];?> </a> </div>
+                                <div class="item-content">
+                                  <!-- <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div> -->
+                                  <div class="item-price">
+                                    <div class="price-box"> <span class="regular-price"> <span class="price"><i class="fa fa-inr"></i><?php echo $arr_product['product_price'];?></span> </span> </div>
+                                  </div>
+                                  <div class="pro-action">
+                                   <a href="shopping_cart.php?pid=<?php echo $productid; ?>"> <button type="button" class="add-to-cart"> <i class="fa fa-shopping-basket"></i><span> Add to Cart</span> </button></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                   
+				                  <?php }?>
+				   
+					</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end main container --> 
+  
+  <!-- Static Banner -->
+  <div class="banner-static">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-sms-12">
+          <div class="banner-box banner-box2"> <a href="#"><img src="images/bn1.jpeg" alt=""></a>
+            <div class="box-hover">
+              <div class="banner-title">Best & Attractive Sale</div>
+              <span>Save up to 55% off</span> </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-sms-12">
+          <div class="banner-box banner-box1"> <a href="#"><img src="images/bn3.jpeg" alt=""></a>
+            <div class="box-hover">
+              <div class="banner-title">Big Season Sale</div>
+              <span>Save up to 45% off</span> </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-sms-12">
+          <div class="banner-box banner-box3"> <a href="#"><img src="images/bn2.jpeg" alt=""></a>
+            <div class="box-hover">
+              <div class="banner-title">Daily Sale</div>
+              <span>Welcome to Giftypedia!</span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+      <!-- Latest news start -->
+     
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- category area start -->
+  <div class="jtv-category-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="jtv-single-cat">
+            <h2 class="cat-title">Top Rated</h2>
+			
+			    <?php 
+                                      
+                    $query_LatestProducts10 = mysqli_query($conn,"select product_id,product_price,product_title,img_1,product_desc from product where is_delete='0' order by rand() limit 6");
+                                    while($arr_product =  mysqli_fetch_array($query_LatestProducts10)){
+                                      $productid =  $arr_product['product_id'];
+                    ?>
+            <div class="jtv-product jtv-cat-margin">
+              <div class="product-img"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"> <img src="admin/<?php echo $arr_product['img_1'];?>" alt=""> <img class="secondary-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""> </a> </div>
+              <div class="jtv-product-content">
+                <h3><a href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"><?php echo $arr_product['product_title'];?></a></h3>
+                <div class="price-box"> <span class="regular-price"> <span class="price"><i class="fa fa-inr"></i><?php echo $arr_product['product_price'];?></span> </span> </div>
+                <div class="jtv-product-action">
+                  <div class="jtv-extra-link">
+                    <div class="button-cart">
+                       <a href="shopping_cart.php?pid=<?php echo $productid; ?>&qty=1">   <button><i class="fa fa-shopping-basket"></i></button></a>
+                    </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+         
+		                   <?php }?>
+		 
+		 </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="jtv-single-cat">
+            <h2 class="cat-title">Newly Added Sales</h2>
+              <?php 
+                                      
+                    $query_LatestProducts10 = mysqli_query($conn,"select product_id,product_price,product_title,img_1,product_desc from product where is_delete='0' order by product_id desc limit 6");
+                                    while($arr_product =  mysqli_fetch_array($query_LatestProducts10)){
+                                      $productid =  $arr_product['product_id'];
+                    ?>
+            <div class="jtv-product jtv-cat-margin">
+              <div class="product-img"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"> <img src="admin/<?php echo $arr_product['img_1'];?>" alt=""> <img class="secondary-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""> </a> </div>
+              <div class="jtv-product-content">
+                <h3><a href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"><?php echo $arr_product['product_title'];?></a></h3>
+                <div class="price-box"> <span class="regular-price"> <span class="price"><i class="fa fa-inr"></i><?php echo $arr_product['product_price'];?></span> </span> </div>
+                <div class="jtv-product-action">
+                  <div class="jtv-extra-link">
+                    <div class="button-cart">
+                       <a href="shopping_cart.php?pid=<?php echo $productid; ?>&qty=1">   <button><i class="fa fa-shopping-basket"></i></button></a>
+                    </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+         
+		                   <?php }?>
+          
+		  
+		  </div>
+        </div>
+        
+       <!-- service area start -->
+        <div class="col-md-4 col-sm-6">
+          <div class="jtv-single-cat">
+            <h2 class="cat-title">Gifty Bazaar</h2>
+			 <?php 
+                                      
+                    $query_LatestProducts10 = mysqli_query($conn,"select a.product_id,a.product_price,a.product_title,a.img_1,a.product_desc from product As a , bidding_product As b  where b.is_delete='0' and a.product_id=b.product_id order by rand() asc limit 6");
+                                    while($arr_product =  mysqli_fetch_array($query_LatestProducts10)){
+                                      $productid =  $arr_product['product_id'];
+                    ?>
+            <div class="jtv-product jtv-cat-margin">
+              <div class="product-img"> <a title="<?php echo $arr_product['product_title'];?>" href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"> <img src="admin/<?php echo $arr_product['img_1'];?>" alt=""> <img class="secondary-img" src="admin/<?php echo $arr_product['img_1'];?>" alt=""> </a> </div>
+              <div class="jtv-product-content">
+                <h3><a href="product-description.php?prdid=<?php echo $arr_product['product_id'];?>"><?php echo $arr_product['product_title'];?></a></h3>
+                <div class="price-box"> <span class="regular-price"> <span class="price"><i class="fa fa-inr"></i><?php echo $arr_product['product_price'];?></span> </span> </div>
+                <div class="jtv-product-action">
+                  <div class="jtv-extra-link">
+                    <div class="button-cart">
+                       <a href="shopping_cart.php?pid=<?php echo $productid; ?>&qty=1">   <button><i class="fa fa-shopping-basket"></i></button></a>
+                    </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+         
+		                   <?php }?>
+
+	   </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- category-area end -->
+  <div class="container">
+    <div class="row"> 
+      <!-- our clients Slider -->
+      <div class="col-md-12 col-xs-12">
+        <div class="our-clients">
+          <div class="slider-items-products">
+            <div id="our-clients-slider" class="product-flexslider hidden-buttons">
+              <div class="slider-items slider-width-col6"> 
+                
+               
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+<?php include('footer.php')?>
+</body>
+
+
+</html>
